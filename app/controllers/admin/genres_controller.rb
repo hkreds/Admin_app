@@ -5,7 +5,7 @@ class Admin::GenresController < ApplicationController
   end
 
   def create
-    @genre = Genre.new
+    @genre = Genre.new(genre_params)
     if @genre.save
       redirect_to request.referer
     end
