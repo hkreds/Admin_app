@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
+  end
   root to: "public/homes#top"
   get "about" => 'public/homes#about'
 
