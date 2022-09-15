@@ -10,7 +10,7 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to request.referer
+      redirect_to items_path
     end
   end
 
@@ -24,11 +24,11 @@ class Admin::ItemsController < ApplicationController
       redirect_to admin_item_path
     end
   end
-  
+
   private
-  
-  def genre_params
+
+  def item_params
     params.require(:item).permit(:name, :explanation, :without_tax, :sold_out)
   end
-  
+
 end
