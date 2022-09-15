@@ -1,6 +1,6 @@
-<h1>商品新規登録</h1>
+<h1 class="px-3" style= "width: fit-content; background-color: #e6e6e6;">商品新規登録</h1>
 <%= form_with model: [:admin, @item] do |f| %>
-  <%= f.label "商品名" %>
+  <p>商品名</p>
   <%= f.text_field :name %>
   <%= f.submit "新規登録", class: "btn btn-success" %>
 <% end %>
