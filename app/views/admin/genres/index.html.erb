@@ -1,5 +1,5 @@
 <h1>ジャンル一覧・追加</h1>
-<%= form_with model: [Admin, @genre] do |f| %>
+<%= form_with model: [:admin, @genre] do |f| %>
   <%= f.label "ジャンル名" %>
   <%= f.text_field :name %>
   <%= f.submit "新規登録" %>
