@@ -17,6 +17,8 @@
   </div>
   <div>
     <span class="mr-5">販売ステータス</span>
+    <%= f.radio_button :sold_out, Item.selling_i18n, :first %>
+    <%= f.radio_button :sold_out, Item.sold_out_i18n, :last %>
   </div>
   <%= f.submit "新規登録", class: "btn btn-success" %>
 <% end %>
