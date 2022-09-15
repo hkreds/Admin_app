@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
-  end
+  # 顧客用
   root to: "public/homes#top"
   get "about" => 'public/homes#about'
+  get 'items' => 'public/items#index'
+  get 'items/:id' => 'public/items#show'
 
-  # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
