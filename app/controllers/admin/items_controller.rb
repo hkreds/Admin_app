@@ -21,4 +21,11 @@ class Admin::ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
   end
+  
+  private
+  
+  def genre_params
+    params.require(:item).permit(:name, :explanation, :without_tax, :sold_out)
+  end
+  
 end
