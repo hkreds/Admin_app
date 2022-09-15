@@ -8,7 +8,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new
+    @item = Item.new(item_params)
     if @item.save
       redirect_to request.referer
     end
@@ -20,6 +20,9 @@ class Admin::ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to admin_item_path
+    end
   end
   
   private
