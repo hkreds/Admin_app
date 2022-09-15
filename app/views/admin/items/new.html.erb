@@ -1,24 +1,39 @@
 <h1 class="px-3" style= "width: fit-content; background-color: #e6e6e6;">商品新規登録</h1>
-<%= form_with model: [:admin, @item] do |f| %>
-  <div>
-    <span class="mr-5">商品名</span>
-    <%= f.text_field :name, placeholder:"商品名" %>
-  </div>
-  <div>
-    <span class="mr-5">商品説明</span>
-    <%= f.text_area :explanation, placeholder:"ここに説明" %>
-  </div>
-  <div>
-    <span class="mr-5">ジャンル</span>
-  </div>
-  <div>
-    <span class="mr-5">税抜価格</span>
-    <%= f.text_field :explanation, placeholder:"1000" %>
-  </div>
-  <div>
-    <span class="mr-5">販売ステータス</span>
-    <%= f.radio_button :sold_out, Item.selling_i18n, :first %>
-    <%= f.radio_button :sold_out, Item.sold_out_i18n, :last %>
-  </div>
-  <%= f.submit "新規登録", class: "btn btn-success" %>
-<% end %>
+<table>
+  <tbody>
+    <%= form_with model: [:admin, @item] do |f| %>
+      <tr>
+        <td><span class="mr-5">商品画像</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="mr-5">商品名</span></td>
+        <td><%= f.text_field :name, placeholder:"商品名" %></td>
+      </tr>
+      <tr>
+        <td><span class="mr-5">商品説明</span></td>
+        <td><%= f.text_area :explanation, placeholder:"ここに説明" %></td>
+      </tr>
+      <tr>
+        <td><span class="mr-5">ジャンル</span></td>
+      </tr>
+      <tr>
+        <td><span class="mr-5">税抜価格</span></td>
+        <td><%= f.text_field :explanation, placeholder:"1000" %></td>
+      </tr>
+      <tr>
+        <td><span class="mr-5">販売ステータス</span></td>
+        <td>
+          <%= f.radio_button :item, :true %>
+          <%= f.label :item, "販売中", {value: :true, style: "display: inline-block;"} %>
+          <%= f.radio_button :item, :false %>
+          <%= f.label :item, "販売停止中", {value: :false, style: "display: inline-block;"} %>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="mr-5"></span></td>
+        <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
