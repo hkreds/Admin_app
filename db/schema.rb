@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_17_001525) do
+ActiveRecord::Schema.define(version: 2022_09_17_004531) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -85,14 +85,22 @@ ActiveRecord::Schema.define(version: 2022_09_17_001525) do
     t.index ["genre_id"], name: "index_items_on_genre_id"
   end
 
+  create_table "order_details", force: :cascade do |t|
+    t.integer "price", null: false
+    t.integer "amount", null: false
+    t.integer "making_status", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "orders", force: :cascade do |t|
-    t.string "postal_code"
-    t.string "address"
-    t.string "name"
-    t.integer "shopping_cost"
-    t.integer "total_payment"
-    t.integer "payment_method"
-    t.integer "status"
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "name", null: false
+    t.integer "shopping_cost", null: false
+    t.integer "total_payment", null: false
+    t.integer "payment_method", null: false
+    t.integer "status", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
